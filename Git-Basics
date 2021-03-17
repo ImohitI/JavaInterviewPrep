@@ -1,0 +1,170 @@
+git init
+git add .
+git commit -m "commit message"
+
+git remote add origin <remote repository url>
+git remote -v // Verifies the new remote url
+
+//push changes in your local repository to Github
+git push origin master
+
+git clone <remote url> folderName
+
+
+
+//create a new branch
+git checkout -b feature_x
+
+//switch back to master
+git checkout master
+
+//and delete the new branch 
+git branch -d feature_x
+
+//branch is not available to others unless you push the branch to remote
+git push origin <branch>
+
+//update all your local repository to the newest commit , execute
+git pull
+// to fetch and merge remote changes 
+
+//to merge another branch into your active branch
+git merge <branch>
+
+//before merging you can preview the difference
+git diff <source_branch> <target_branch>
+
+//recommended to create tags for software releases. 
+//create new tag by executing 
+git tag 1.0.0 1b2e1ggfg
+last being the first 10 characters of the commit id you want to reference with your tag
+
+//get repository history using git log
+git log
+
+//only commits of an author
+git log --author=bob
+
+//compressed log where each commit is one line
+git log --pretty=oneline
+
+//see only which files have changed
+git log --name-status
+
+//replace local changes
+git checkout -- <filename>
+this replaces the changes in you working tree with the last content in HEAD
+Changes already added to index , as well as new files , will be kept
+
+//if you want to drop all your local changes and commits, fetch the latest history 
+from the server and point you local master branch at it like this
+git fetch origin
+git reset --hard origin/master
+
+----------------------------------------------
+Git Concepts
+Purpose -- to manage a set of files
+Store Information in data structure called repository
+Repository contains -- a set of commit objects 
+                    -- a set of references to commit objects , called heads
+
+A commit object contains three thing
+-- a set of files , reflecting the state of a project at a given time
+-- reference to parent commit objects
+-- an SHA1 name ,a 40 characters string that uniquely identifies the commit object
+
+The parent commit objects are those commits that were edited to produce the subsequent state of the project.
+A head is simply a reference to a commit object. the repository can have any number of heads.
+HEAD uppercase refers to currently active head.
+
+
+Branching
+(A) -- (B) -- (C)
+               |
+             master
+               |
+              HEAD
+git branch [new-head-name] [reference-to-(B)]
+or 
+git branch fix-headers HEAD^
+
+(A) -- (B) ------- (C)
+        |           |
+   fix-headers    master
+                    |
+                   HEAD
+
+
+Switching between branches
+
+git checkout [head-name]
+-- this points HEAD to the commit object -specified by head-name 
+-- rewrites all the files in the directory to match the files stored int he new HEAD commit
+
+Always better to commit al the new changes before checking out the new head 
+
+         +-------------- (D)
+        /                 |
+(A) -- (B) -- (C)         |
+               |          |
+             master  fix-headers
+                          |
+                         HEAD
+
+git branch    with no arguments lists the existing branch
+git diff head1... head2 shows the diff between the commits referenced by head2 and head1
+git log head1 .. head2 shows the change log between head2 and common ancestor of head1 and head2
+
+
+merge
+         +---------- (D)
+        /             |
+(A) -- (B) -- (C) -------------- (E)
+                      |           |
+                 fix-headers    master
+                                  |
+                                 HEAD
+
+
+merge head A into head B 
+it means that head B is the current head , and you are drawing changes
+from head A into it. Head B gets updated; nothing is done to head A.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
