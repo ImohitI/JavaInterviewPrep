@@ -132,6 +132,26 @@ from head A into it. Head B gets updated; nothing is done to head A.
 
 
 
+-------------------------------------------------------------------------
+removing .idea from git
+
+Add .idea in .gitignore
+.idea
+
+Remove it from repository withour deleting it from local file system
+for a single file
+  git rm --cached myLogfile.log
+for a single directory
+  git rm --cached -r myDirectory
+
+Add and commit the changes
+
+Push to origin
+
+-------------------------------------------------------------------------
+
+
+
 
 
 
