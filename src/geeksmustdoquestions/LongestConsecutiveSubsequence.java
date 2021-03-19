@@ -55,7 +55,7 @@ public class LongestConsecutiveSubsequence {
             {
                 int j = a[i];
                 //then we keep checking whether the next consecutive elements
-                //are present in HashSet and we keep incrementing the counter.
+                    //are present in HashSet and we keep incrementing the counter.
                 while(hs.contains(j))
                 {
                     j++;
