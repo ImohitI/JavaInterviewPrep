@@ -1,4 +1,4 @@
-package geeksmustdoquestions;
+package geeksmustdoquestions.ArraysQuestions;
 
 public class MaximumAbsoluteDifference {
 

@@ -1,4 +1,4 @@
-package geeksmustdoquestions;
+package geeksmustdoquestions.ArraysQuestions;
 
 public class JumpGame {
     public static void main(String[] args) {

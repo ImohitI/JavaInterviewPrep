@@ -1,4 +1,4 @@
-package geeksmustdoquestions;
+package geeksmustdoquestions.ArraysQuestions;
 
 import java.util.HashMap;
 import java.util.Map;

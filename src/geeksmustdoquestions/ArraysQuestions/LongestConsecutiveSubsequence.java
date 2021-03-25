@@ -1,4 +1,4 @@
-package geeksmustdoquestions;
+package geeksmustdoquestions.ArraysQuestions;
 
 import java.util.Arrays;
 import java.util.HashSet;

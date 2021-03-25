@@ -1,7 +1,6 @@
-package geeksmustdoquestions;
+package geeksmustdoquestions.ArraysQuestions;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class StockBuyAndSell {
     public static void main(String[] args) {
