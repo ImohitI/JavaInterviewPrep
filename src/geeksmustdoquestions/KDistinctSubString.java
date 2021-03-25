@@ -126,31 +126,33 @@ a -- 2
         while(end < str.length()){
             char c = str.charAt(end);
             map.put(c , map.getOrDefault(c, 0)+1);
-            System.out.println(" begin "+begin+" end "+end+" char "+c+" size "+map.size());
-            end++;
-            if(map.size() <k) {
-                int toAdd = end - begin ;
+
+            if(map.size() <=k) {
+                int toAdd = end - begin + 1;
                 System.out.println(">> going to add "+toAdd+" for index "+end);
                 ans += toAdd;
             }
-            while(map.size() >= k){
+            while(map.size() > k){
                 // int toAdd = end - begin ;
                // System.out.println("adding "+toAdd+" for index "+begin);
                // ans += toAdd;//all substring with at most k distinct char starting from begin
                 c = str.charAt(begin);
+
                 if(map.get(c) == 1){
                     map.remove(c);
                 }else {
-                    map.put(c , map.put(c , map.get(c)-1));
-                }
-                if(map.size() == k){
-                    int toAdd = end - begin ;
-                    System.out.println(">>> going to add "+toAdd+" for index "+end+" char "+c);
-                    ans += toAdd;
+                    map.put(c ,  map.get(c)-1);
                 }
                 begin++;
 
+                if(map.size() == k){
+                    int toAdd = end - begin + 1;
+                    System.out.println(">>  adding "+toAdd+" for index "+begin+" end "+end);
+                    ans += toAdd;
+                }
+
             }
+            end++;
         }
 
 
