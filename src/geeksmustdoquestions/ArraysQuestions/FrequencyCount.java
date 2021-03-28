@@ -7,9 +7,9 @@ import java.util.Map;
 public class FrequencyCount {
 
     public static void main(String[] args) {
-       int n = 5;
-       int A[] = {9,2,3,2,3,5,10,2,7};
-       frequencycount_2(A,n);
+       int n = 7;
+       int A[] = {9,3,3,5,1,3,1};
+        frequencycount_3(A,n);
        // [0, 2, 2, 0, 1, 0]
         //[1, 2, 2, 1, 0, 5]
     }
@@ -54,10 +54,14 @@ public class FrequencyCount {
     }
     public static void frequencycount_3(int arr[], int n)
     {
+        //9,2,3,2,3,5,10,2,7
         for (int i =0; i<n; i++)
             arr[i] = arr[i]-1;
+
+        System.out.println(Arrays.toString(arr));
         for(int i=0;i<n;i++)
             arr[arr[i]%n]+=n;
+        System.out.println(Arrays.toString(arr));
         for(int i=0;i<n;i++)
             arr[i]/=n;
 
@@ -76,6 +80,7 @@ public class FrequencyCount {
         for(Map.Entry<Integer,Integer> e : map.entrySet()){
             System.out.println(e.getKey()+" "+e.getValue());
         }
+
         for(int i=0;i<arr.length;i++) {
             arr[i] = ((map.containsKey(i+1)) ? map.get(i+1) : 0);
         }

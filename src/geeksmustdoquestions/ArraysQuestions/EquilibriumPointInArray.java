@@ -12,7 +12,8 @@ public class EquilibriumPointInArray {
         long[] arr = {20 ,17, 42, 25 ,32, 32, 30, 32, 37, 9 ,2, 33, 31, 17, 14, 40, 9, 12, 36, 21, 8, 33, 6, 6, 10, 37, 12, 26, 21, 3};
        // long[] arr = {1,3,5,2,2};
         //int answer = equilibriumPoint2(arr, 30);
-        int answer = equilibriumPoint3(arr, 30);
+        //int answer = equilibriumPoint3(arr, 30);
+        int answer = equilibriumPoint_4(arr, 30);
         System.out.println(answer);
     }
     //Time Complexity - O(n)  Auxiliary Space - O(1)
@@ -116,4 +117,32 @@ here add 1 to get the real index
             return -1;
 
     }
+/*
+
+much more cleaner and intuitive
+ */
+    public static int equilibriumPoint_4(long arr[], int n) {
+
+        long total_sum = 0 ;
+        for(int i = 0 ; i < arr.length ; i++){
+            total_sum += arr[i];
+        }
+
+        int leftSum = 0;
+
+        for(int i = 0 ; i < arr.length ; i++){
+            if(i != 0 ) leftSum  += arr[i-1];
+
+            if( total_sum - leftSum - arr[i] == leftSum){
+                return i+1;//adjustment for geeks question , ideally it should have be i
+            }
+
+        }
+        return -1;
+    }
 }
+/*
+20 + 17 + 42 + 25 +  32+  32 + 30 + 32 + 37 + 9 + 2 +33  ---- 311
+31
+17 + 14 + 40 + 9 + 12 +  36 + 21 + 8 + 33 + 6 + 6 + 10 + 37 + 12 +26 +21 + 3  --- 311
+ */

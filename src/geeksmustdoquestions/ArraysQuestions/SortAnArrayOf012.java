@@ -4,9 +4,24 @@ import java.util.Arrays;
 
 public class SortAnArrayOf012 {
     public static void main(String[] args) {
-        int arr[]= {0 ,2 ,1 ,2 ,0,1,0,2,1};
-        sort012_2(arr);
+        int arr[]= {0 ,1 ,2 ,0,1,0,2,2};
+        //sort012_2(arr);
+
+        MyObject[] myObjects = new MyObject[arr.length];
+        for(int i = 0 ; i< arr.length ; i++){
+            myObjects[i] = new MyObject(i,arr[i]);
+        }
+
+        System.out.println(Arrays.toString(myObjects));
+
+        sort012_3(arr);
         System.out.println(Arrays.toString(arr));
+
+        //sort in place check
+        //[0, 0, 0, 1, 1, 1, 2, 2, 2]
+        sort012_3(myObjects);
+        System.out.println(Arrays.toString(myObjects));
+
     }
     //two pointer method
     /*
@@ -81,4 +96,75 @@ dividing problem into two parts
         }
     }
 
+
+    public static void sort012_3(int arr[]) {
+        if(arr.length == 0 || arr.length == 1) return;
+
+        int start = 0;
+        int end = arr.length - 1;
+        int index = 0;
+
+        while(index <= end && start < end){
+
+            if(arr[index] == 0){
+                arr[index] = arr[start];
+                arr[start] = 0;
+                start++;
+                index++;
+            }else if( arr[index] == 2){
+                arr[index] = arr[end];
+                arr[end] = 2;
+                end--;
+            }else{
+                index++;
+            }
+
+        }
+    }
+
+    //checking inplace behaviour
+
+    public static void sort012_3(MyObject[] arr) {
+        if(arr.length == 0 || arr.length == 1) return;
+
+        int start = 0;
+        int end = arr.length - 1;
+        int index = 0;
+
+        while(index <= end && start < end){
+
+            if(arr[index].value == 0){
+                MyObject temp = arr[index];
+                arr[index] = arr[start];
+                arr[start] = temp;
+                start++;
+                index++;
+            }else if( arr[index].value == 2){
+                MyObject temp = arr[index];
+                arr[index] = arr[end];
+                arr[end] = temp;
+                end--;
+            }else{
+                index++;
+            }
+
+        }
+    }
+}
+class MyObject{
+    public int index;
+    public int value;
+
+    public MyObject(int index, int value) {
+        this.index = index;
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "MyObject{" +
+                "index=" + index +
+                ", value=" + value +
+                '}'+'\n';
+    }
 }

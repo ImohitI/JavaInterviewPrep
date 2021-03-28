@@ -8,9 +8,12 @@ public class SubArrayWithGivenSum {
     public static void main(String[] args) {
        // List<Integer> list = subarraySum4(new int[]{ 15, 2, 4, 8, 9, 5, 10, 23 }, 23);
         //List<Integer> list = subarraySum4(new int[]{ 24,24,24,24 ,2, 4, 8, 9}, 23);
-        List<Integer> list = subarraySum4(new int[]{113,68,100,36,95,104,12,123,134} , 468);
-
+        List<Integer> list = subarraySum6(new int[]{113,68,100,36,95,104,12,123,134} , 468);
+        //List<Integer> list2 = subarraySum6(new int[]{1,1,1,1,1,1,1,1,2} , 34);
         System.out.println(list.toString());
+      //  42 468
+       //  172 139 70 113 68 100 36 95 + 104 +12 + 123 + 134
+
     }
     //On2 , they may not give the lowest index sub array
     static ArrayList<Integer> subarraySum(int[] arr, int s) {
@@ -175,5 +178,40 @@ public class SubArrayWithGivenSum {
         }
         return res;
     }
+    static ArrayList<Integer> subarraySum6(int[] arr, int s) {
+        // Your code here
+        ArrayList<Integer> list = new ArrayList<>();
+
+        int start = 0;
+        int end = 0;
+        int sum = 0;
+        while( start <= end && end <= arr.length){
+            //System.out.println(" start "+ start+" end "+end+" sum "+sum);
+            if(sum < s ){
+                if(end< arr.length) {
+                    sum += arr[end];
+                }
+                end++;
+            }else if(sum == s ){
+                list.add(++start);
+                list.add(end);
+                return list;
+            }else {
+                while (sum > s) {
+                    //increasing start
+                    sum -= arr[start];
+                    start++;
+                }
+
+            }
+
+        }
+        if(list.size() == 0) {
+            list.add(-1);
+        }
+
+        return list;    
+    }
+
 
 }

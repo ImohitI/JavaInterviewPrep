@@ -6,6 +6,8 @@ import java.util.Collections;
 public class LeadersInAnArray {
     public static void main(String[] args) {
 
+        int [] arr = {13 , 87 , 45};
+        leaders2(arr, 3);
     }
     static ArrayList<Integer> leaders(int arr[], int n){
         // Your code here
@@ -26,6 +28,30 @@ public class LeadersInAnArray {
         }
 
         Collections.reverse(list);
+
+        System.out.println(list);
+        return list;
+    }
+    static ArrayList<Integer> leaders2(int arr[], int n){
+        // Your code here
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        int rMax = arr[n-1];
+        list.add(arr[n-1]);
+        for(int i = n-2 ; i >=0 ; i--){
+
+            if(arr[i] >= rMax){
+                list.add(arr[i]);
+                rMax = arr[i];
+            }
+
+        }
+
+        for(int i = 0 ; i < list.size()/2; i++){
+            int temp = list.get(i);
+            list.set(i , list.get(list.size() - i - 1));
+            list.set(list.size() - i -1 , temp);
+        }
+
 
         return list;
     }

@@ -27,7 +27,7 @@ public class AlternatePosNegNumbers {
         while (i < neg.size() && j < pos.size()) {
             arr[k++] = pos.get(j++);
             arr[k++] = neg.get(i++);
-        }
+        }   
         while (j < pos.size()) { arr[k++] = pos.get(j++); }
 
         while (i < neg.size()) { arr[k++] = neg.get(i++); }

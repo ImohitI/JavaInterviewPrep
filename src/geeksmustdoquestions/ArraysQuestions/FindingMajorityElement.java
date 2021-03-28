@@ -39,22 +39,20 @@ public class FindingMajorityElement {
     static int majorityElement_2(int a[])
     {
         // your code here
-        Map<Integer, Integer> hmap = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 
-        for(int i=0 ; i < a.length ; i++){
-            if(hmap.containsKey(a[i])){
-                int count =  hmap.get(a[i])+1;
-                if(count > a.length/2){
-                    return  a[i];
-                }else {
-                    hmap.put(a[i], count);
+        for(int i = 0 ; i < a.length ; i++){
+            if(map.containsKey(a[i])){
+                map.put(a[i] , map.get(a[i])+1);
+
+                if(map.get(a[i]) > a.length / 2){
+                    return a[i];
                 }
-
             }else{
-                hmap.put(a[i] , 1);
+                map.put(a[i], 1);
             }
         }
 
-        return  -1;
+        return a.length == 1 ? a[0] : -1;
     }
 }

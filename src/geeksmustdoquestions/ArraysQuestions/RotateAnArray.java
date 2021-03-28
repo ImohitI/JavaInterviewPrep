@@ -4,8 +4,12 @@ import java.util.Arrays;
 
 public class RotateAnArray {
     public static void main(String[] args) {
-    int arr[] = {1,2,3,4,5};
-    rotateArr(arr, 2);
+    int arr[] = {1,2,3,4,5,6,7,8,9};
+        // 7 6 5 4 3 2 1
+        // 5 6 7 4 3 2 1
+        // 5 6 7 1 2 3 4
+
+    rotateArr_6(arr, 3,9);
         System.out.println(Arrays.toString(arr));
     }
     static void rotateArr(int arr[], int d) {
@@ -94,4 +98,50 @@ public class RotateAnArray {
         else
             return gcd(b, a % b);
     }
+
+    static void rotateArr_5(int arr[], int d, int n)
+    {
+        // add your code here
+
+        int[] temp = new int[d];
+        for(int i=0 ; i< d; i++){
+            temp[i] = arr[i];
+        }
+
+        int index = 0;
+        for(int i = 0 ; i<arr.length; i++){
+            if(i < arr.length - d){
+                arr[i] = arr[i+d];
+            }else{
+                //System.out.println(" i "+i+" d "+d);
+                arr[i] = temp[index++];
+            }
+
+        }
+
+    }
+    static void rotateArr_6(int arr[], int d, int n)
+    {
+        // add your code here
+        d = d % n;
+
+        reverse(arr , 0 , n-1);
+        reverse(arr, 0 , n-d-1);
+        reverse(arr, n-d , n-1);
+
+
+
+    }
+
+    public static void reverse(int[] nums , int start , int end){
+        while(start < end){
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+
 }
