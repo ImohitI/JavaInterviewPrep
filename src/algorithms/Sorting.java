@@ -35,11 +35,9 @@ public class Sorting {
     //selection sort O(n^2)
     public static void selectionSort(int[] arr){
         for(int i = 0; i < arr.length ; i++){
-            int min = arr[i];
-            int minId = i;
+            int minId = i;//assume current element is min ,compare with all the element with greater index
             for(int j = i + 1; j < arr.length ; j++){
-                if(arr[minId] < min){
-                    min = arr[j];
+                if(arr[minId] < arr[j]){
                     minId = j;
                 }
             }

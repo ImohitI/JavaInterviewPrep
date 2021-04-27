@@ -10,7 +10,7 @@ public class MergeWithoutExtraSpace {
         int n = 4;
         int m = 5;
         //merge(arr1, arr2 , n , m);
-        merge_2(arr1, arr2 , n , m);
+        merge_3(arr1, arr2 , n , m);
         System.out.println(Arrays.toString(arr1)+" "+Arrays.toString(arr2));
     }
 
@@ -79,7 +79,30 @@ public class MergeWithoutExtraSpace {
             System.out.println(Arrays.toString(arr1));
             System.out.println(Arrays.toString(arr2));
         }
+    }
 
+    public static void merge_3(int arr1[], int arr2[], int n, int m) {
 
+        for(int i = 0 ; i < arr1.length ; i++){
+            boolean swap = false;
+            if(arr1[i] > arr2[0]){
+                int temp = arr1[i];
+                arr1[i] = arr2[0];
+                arr2[0] = temp;
+                swap = true;
+            }
+
+            if(swap){
+                int k = 1;
+                int key = arr2[0];
+                while(k <arr2.length && arr2[k] < key){
+                    arr2[k-1] = arr2[k];
+                    k++;
+                }
+                arr2[k-1] = key;
+            }
+        }
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(arr2));
     }
 }
