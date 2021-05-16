@@ -1,8 +1,6 @@
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.IntPredicate;
@@ -64,6 +62,36 @@ public class Main006 {
         List<Integer> doubleList = numbersList.stream().map(n -> n*2).collect(Collectors.toList());
 
 
+
+        int arr[] = {3, 4 , 2 , 3 , 2 , 3, 1 , 5};
+        Map<Integer, Integer> map  = new HashMap<>();
+
+        for(int x : arr){
+            if(map.containsKey(x)){
+                map.put(x, map.get(x) + 1);
+            }else{
+                map.put(x , 1);
+            }
+        }
+        int max = Integer.MIN_VALUE;
+/*
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            if(max < entry.getValue()){
+                max = entry.getValue();
+            }
+        }
+*/
+
+        for(Integer i : map.values()){
+            if(max < i){
+                max = i;
+            }
+        }
+
+        System.out.println(max);
+
+    }
+    public static void asa11212method1(){
 
     }
 }
