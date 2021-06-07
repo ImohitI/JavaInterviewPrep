@@ -1,6 +1,15 @@
 package algorithms;
 
+import java.util.Arrays;
+
 public class Sorting {
+
+
+    public static void main(String[] args) {
+        int arr[] ={3,60,35,2,45,320,5};
+        bubbleSort_2(arr);
+        System.out.println(Arrays.toString(arr));
+    }
     //bubble sort o(n2)
     public static void bubbleSort(int[] arr){
         boolean sorted = false;
@@ -17,7 +26,21 @@ public class Sorting {
             }
         }
     }
+    public static void bubbleSort_2(int[] arr){
 
+        int temp;
+
+        for(int i = 0; i < arr.length ; i++){
+            for(int j = i+1; j < arr.length ; j++) {
+                if (arr[i] > arr[j]) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+
+    }
     //insertion sort O(n^2)
     public static void insertionSort(int[] arr){
         for(int i = 1 ; i < arr.length ; i++){
@@ -31,6 +54,20 @@ public class Sorting {
         }
     }
 
+    //insertion sort O(n^2)
+    public static void insertionSort_2(int[] arr){
+        for(int j=1 ; j < arr.length ; j++){
+            int key = arr[j];
+            int i = j-1;
+
+            while(i > -1 && arr[i] > key){
+                arr[i + 1] = arr[i];
+                i--;
+            }
+
+            arr[i+1] = key;
+        }
+    }
 
     //selection sort O(n^2)
     public static void selectionSort(int[] arr){
@@ -99,7 +136,6 @@ public class Sorting {
                 rightIndex++;
             }
         }
-
     }
 
     //Heap Sort O(nlogn) all casese , space is O(1)
