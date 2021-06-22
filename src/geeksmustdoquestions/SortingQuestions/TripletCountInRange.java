@@ -1,6 +1,6 @@
 package geeksmustdoquestions.SortingQuestions;
 
-public class TripletCount {
+public class TripletCountInRange {
     public static void main(String[] args) {
 
     }
