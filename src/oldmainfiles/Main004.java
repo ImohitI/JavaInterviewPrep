@@ -1,7 +1,7 @@
-import org.junit.Test;
-import org.junit.internal.TextListener;
-import org.junit.runner.JUnitCore;
-import tests.FirstUnitTest;
+package oldmainfiles;//import org.junit.Test;
+//import org.junit.internal.TextListener;
+//import org.junit.runner.JUnitCore;
+//import tests.FirstUnitTest;
 
 import java.io.FileInputStream;
 import java.util.Collections;
@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import static org.junit.Assert.assertTrue;
+//import static org.junit.Assert.assertTrue;
 
 public class Main004 {
     public static void main(String[] args) {
@@ -88,9 +88,9 @@ public class Main004 {
          * subsequent to the access or removal of that objects in another thread.
           */
 
-        JUnitCore junit = new JUnitCore();
-        junit.addListener(new TextListener(System.out));
-        junit.run(FirstUnitTest.class);
+//        JUnitCore junit = new JUnitCore();
+//        junit.addListener(new TextListener(System.out));
+//        junit.run(FirstUnitTest.class);
     }
 
 }

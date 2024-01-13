@@ -1,3 +1,5 @@
+package oldmainfiles;
+
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -196,7 +198,7 @@ public class Main002 {
 
         //equals and hashcode implementation
         //for any non-null reference value a , a.equals(null) should return false.
-        // creating the Objects of Geek class.
+        // creating the Objects of oldmainfiles.Geek class.
         Geek g1 = new Geek("aa", 1);
         Geek g2 = new Geek("aa", 1);
 
@@ -215,14 +217,14 @@ public class Main002 {
         Child cobj = new Child();
 
         if (cobj instanceof Child)
-            System.out.println("cobj is instance of Child");
+            System.out.println("cobj is instance of oldmainfiles.Child");
         else
-            System.out.println("cobj is NOT instance of Child");
+            System.out.println("cobj is NOT instance of oldmainfiles.Child");
 
         if (cobj instanceof Parent)
-            System.out.println("cobj is instance of Parent");
+            System.out.println("cobj is instance of oldmainfiles.Parent");
         else
-            System.out.println("cobj is NOT instance of Parent");
+            System.out.println("cobj is NOT instance of oldmainfiles.Parent");
 
         if (cobj instanceof Object)
             System.out.println("cobj is instance of Object");
@@ -239,15 +241,15 @@ public class Main002 {
 
         Parent pobj = new Parent();
         if (pobj instanceof Child)
-            System.out.println("pobj is instance of Child");
+            System.out.println("pobj is instance of oldmainfiles.Child");
         else
-            System.out.println("pobj is NOT instance of Child");
+            System.out.println("pobj is NOT instance of oldmainfiles.Child");
 
         Parent cobj1 = new Child();
         if (cobj1 instanceof Child)
-            System.out.println("cobj1 is instance of Child");
+            System.out.println("cobj1 is instance of oldmainfiles.Child");
         else
-            System.out.println("cobj1 is NOT instance of Child");
+            System.out.println("cobj1 is NOT instance of oldmainfiles.Child");
 
     }
 }

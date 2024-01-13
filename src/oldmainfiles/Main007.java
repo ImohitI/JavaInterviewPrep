@@ -1,3 +1,5 @@
+package oldmainfiles;
+
 import java.util.Arrays;
 
 public class Main007 {

@@ -1,3 +1,5 @@
+package oldmainfiles;
+
 public class Main005 {
     /*
     *
